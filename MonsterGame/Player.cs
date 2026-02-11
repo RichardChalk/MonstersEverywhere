@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace MonsterGame
+﻿namespace MonsterGame
 {
     public class Player
     {
@@ -22,10 +15,10 @@ namespace MonsterGame
             }
             else
             {
-                throw new ArgumentException("Password must be at least 8 characters long, contain at least one capital letter, and at least one number.");
+                throw new ArgumentException("Password must be at least 8 characters long!");
             }
         }
-      
+
 
         // Password validation method
         private bool IsValidPassword(string pwd)

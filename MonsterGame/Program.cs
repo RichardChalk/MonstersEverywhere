@@ -6,12 +6,28 @@
         {
             GetPlayerDetails getPlayerDetails = new GetPlayerDetails();
             string playerName = getPlayerDetails.GetPlayerName();
-            string playerPassword = getPlayerDetails.GetPlayerPassword();
+
+            // Hämta lösenord + skapa Player i en loop tills det blir giltigt
+            Player player = null;
+
+            while (player == null)
+            {
+                string playerPassword = getPlayerDetails.GetPlayerPassword();
+
+                try
+                {
+                    // Create a new player
+                    player = new Player(playerName, playerPassword);
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Försök igen.\n");
+                }
+            }
+
             ushort playerAge = getPlayerDetails.GetPlayerAge();
             
-            // Create a new player
-            Player player = new Player(playerName, playerPassword);
-
             Console.WriteLine($"Player {player.PlayerName} has been created.");
 
             // Create a monster with 50 HP
